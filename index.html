@@ -1,0 +1,94 @@
+
+
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<!--BOOTSTRAP-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<script src="app.js">
+	</script>
+<style>
+
+</style>
+	</head>
+<body>
+
+
+<div ng-app="list" ng-controller="myCtrl"  >
+
+
+
+
+
+
+<table class="table table-hover">
+	<tr>
+		<th>USER ID</th>
+		<!-- <th>ID</th> -->
+		<th>TITLE</th>
+		<th>COMPLETED</th>
+	</tr>
+	<tr ng-repeat='x in ar'  data-toggle="modal" data-target="#myModal" ng-click="details(x)">
+		<td ng-click="user(x)">
+		{{x.userId}}</td>
+		<!-- <td>{{x.id}}</td> -->
+		<td >{{x.title}}</td>
+		<td >{{x.completed}}</td>
+	</tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          	<input type="text" ng-model="selected.title">
+	<input type="submit" value="mark as done" ng-click="done(selected)">
+	<p>{{selected.title}}</p>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+</div>
+
+</div>
+
+	</body>
+</html>
