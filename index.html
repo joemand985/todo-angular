@@ -11,8 +11,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 	<script src="app.js">
 	</script>
-<style>
 
+<style>
+.true {
+  color: green;
+}
 </style>
 	</head>
 <body>
@@ -21,8 +24,8 @@
 <div ng-app="list" ng-controller="myCtrl"  >
 
 
-
-
+<h1>To Do List</h1>
+<h1 ng-click="add()">+</h1>
 
 
 <table class="table table-hover">
@@ -32,12 +35,19 @@
 		<th>TITLE</th>
 		<th>COMPLETED</th>
 	</tr>
-	<tr ng-repeat='x in ar'  data-toggle="modal" data-target="#myModal" ng-click="details(x)">
+	<tr 
+  ng-repeat='x in ar'  
+  data-toggle="modal" 
+  data-target="#myModal" 
+  ng-click="details(x)"
+  >
 		<td ng-click="user(x)">
 		{{x.userId}}</td>
 		<!-- <td>{{x.id}}</td> -->
 		<td >{{x.title}}</td>
-		<td >{{x.completed}}</td>
+		<td class="ng-class: x.completed;"> 
+      <span ng-show="x.completed">DONE</span>
+      <span ng-hide="x.completed">IN PROGRESS...</span></td>
 	</tr>
 </table>
 
@@ -65,14 +75,14 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title">Selected task: {{selected.title}}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body -->
         <div class="modal-body">
           	<input type="text" ng-model="selected.title">
-	<input type="submit" value="mark as done" ng-click="done(selected)">
+	<input type="submit" value="Remove" ng-click="remove(selected)">
 	<p>{{selected.title}}</p>
         </div>
         

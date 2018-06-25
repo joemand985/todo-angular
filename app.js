@@ -21,12 +21,19 @@ app.controller("myCtrl", function($scope, $http){
 	// $scope.user = function(user){
 	// 	console.log(user.userId)
 	// }
-	$scope.done = function(user){
+	$scope.remove = function(user){
 		$scope.ar[$scope.selected.id-1].completed = true;
-		console.log($scope.ar[$scope.selected.id].completed)
+		console.log($scope.ar[$scope.selected.id])
+		$scope.ar.splice($scope.selected.id - 1, 1)
+	}
+
+	$scope.add = function(task){
+		var newTask = prompt("Please enter new task:", "")
+		console.log(newTask)
+		$scope.ar.unshift()
 	}
 }) 
-
+//BUG: USER CAN KEEP REMOVING OTHER ELEMENTS FROM LIST.
 
 
 
